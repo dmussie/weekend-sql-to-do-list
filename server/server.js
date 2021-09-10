@@ -3,15 +3,15 @@ const express = require('express');
 
 // call function
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 // redirect traffic and serves files
 app.use(express.static('server/public'));
 
 // saves our task.router as a variable
-//const tasksRouter = require('./routes/tasks.router');
+const tasksRouter = require('./routes/tasks.router');
 
-//app.use('/tasks', tasksRouter);
+app.use('/tasks', tasksRouter);
 
 // tells our server to listen at our PORT 
 app.listen(PORT, () => {

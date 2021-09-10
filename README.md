@@ -16,9 +16,9 @@ The To-Do App
 
 
 ## Database
--[] Create Table for Tasks (DB name = tasks)
--[] column names (as provided by client) (“id”, “my_task”, "task_complete")
--[] database.sql with commands
+-[x] Create Table for Tasks (DB name = tasks)
+-[x] column names (as provided by client) (“id”, “my_task”, "task_complete")
+-[x] database.sql with commands
 
 ## Server side(push branch and create pull request after each route)
 -[x] npm install and npm install pg
