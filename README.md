@@ -22,7 +22,7 @@ The To-Do App
 
 ## Server side(push branch and create pull request after each route)
 -[x] npm install and npm install pg
--[] link client.js to tasks.router
+-[x] link client.js to tasks.router
 -[] create a get route that retrieves all of the tasks 
 -[ ] create a post route that can enter a new task
 -[ ] create a put route that can update the “ready_to_transfer” column
