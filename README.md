@@ -7,8 +7,12 @@ The To-Do App
 ### Checklist
 
 ## File Tree/Project Setup
--[] create server folder tree and created needed files
--[] HTML skeleton
+-[x] create server folder tree and created needed files
+-[x] HTML skeleton
+-[] npm init --yes and package.json
+-[] npm install express
+-[] setup express on client.js
+-[] add to .gitignore
 
 ## Database
 -[] Create Table for Tasks (DB name = tasks)

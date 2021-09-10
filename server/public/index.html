@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekend SQL To-Do List</title>
+    <script type="text/javascript" src="vendors/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="scripts/client.js"></script>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Danny's To Do List</h1>
+    </header>
+    <main>
+        <h2>Itinerary</h2>
+        <form>
+            <input type="text" id="task" placeholder="New Task">
+            <button id="submit-task">Submit Task</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Complete?</th>
+                </tr>
+            </thead>
+            <tbody id="taskTableBody">
+                <!-- Append tasks here -->
+            </tbody>
+        </table>
+    </main>
+    
+</body>
+</html>
