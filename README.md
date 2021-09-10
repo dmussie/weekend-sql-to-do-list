@@ -11,8 +11,9 @@ The To-Do App
 -[x] HTML skeleton
 -[x] npm init --yes and package.json
 -[x] npm install express
+-[x] add to .gitignore
 -[x] setup express on server.js
--[] add to .gitignore
+
 
 ## Database
 -[] Create Table for Tasks (DB name = tasks)

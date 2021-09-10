@@ -12,5 +12,5 @@ const tasksRouter = require('./routes/tasks.router');
 app.use('/tasks', tasksRouter);
 
 app.listen(PORT, () => {
-    console.log('listening on port', PORT)
+    console.log('listening on port', PORT);
 });
