@@ -9,9 +9,9 @@ The To-Do App
 ## File Tree/Project Setup
 -[x] create server folder tree and created needed files
 -[x] HTML skeleton
--[] npm init --yes and package.json
--[] npm install express
--[] setup express on client.js
+-[x] npm init --yes and package.json
+-[x] npm install express
+-[x] setup express on server.js
 -[] add to .gitignore
 
 ## Database
