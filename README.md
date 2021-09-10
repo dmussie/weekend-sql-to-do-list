@@ -17,11 +17,12 @@ The To-Do App
 
 ## Database
 -[] Create Table for Tasks (DB name = tasks)
--[] column names (as provided by client) (“id”, “activity”, "task_complete")
+-[] column names (as provided by client) (“id”, “my_task”, "task_complete")
 -[] database.sql with commands
 
 ## Server side(push branch and create pull request after each route)
--[] npm install and npm install pg 
+-[x] npm install and npm install pg
+-[] link client.js to tasks.router
 -[] create a get route that retrieves all of the tasks 
 -[ ] create a post route that can enter a new task
 -[ ] create a put route that can update the “ready_to_transfer” column
