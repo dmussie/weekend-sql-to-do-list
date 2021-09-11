@@ -47,7 +47,7 @@ tasksRouter.post('/', (req, res) => {
  * Request body will include teh content to update - the status
  */
 
-router.put('/:id', (req, res) => {
+tasksRouter.put('/:id', (req, res) => {
     console.log(req.params);
     const taskId = req.params.id;
     const queryText = `UPDATE "tasks" 
@@ -59,6 +59,23 @@ router.put('/:id', (req, res) => {
         console.log('Error in /tasks PUT', error);
         res.sendStatus(500);
     });
+});
+
+/**
+ * DELETE
+ * Removes a task to show it's been completed 
+ */
+
+tasksRouter.delete('/:id', (req, res) => {
+    console.log(req.params);
+    const taskId = req.params.id;
+    const queryText = 'DELETE FROM "books" WHERE "id"=$1';
+    pool.query(queryText, [taskId]).then((result) => {
+        res.sendStatus(200);
+    }).catch(error) => {
+        console.log('Error in /tasks DELETE', error);
+        res.sendStatus(500);
+    }
 });
 
 module.exports = tasksRouter;
