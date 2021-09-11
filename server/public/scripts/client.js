@@ -7,6 +7,8 @@ $(document).ready(function(){
 function addClickHandlers() {
     console.log('In addClickHandlers');
     $('#submit-task').on('click', handleSubmit);
+    $('#taskTableBody').on('click', '.delete-button', deleteTask);
+    $('#taskTableBody').on('click', '.complete-button', setToComplete);
 };
 
 //Input values are to be place in an object prior to being appended to the DOM
@@ -67,7 +69,7 @@ function renderTasks(tasks) {
                     <button
                     data-id="${task.id}"
                     class="complete-button">
-                        SET task_complete to TRUE
+                        Complete
                     </button>
                 </td>
             </tr>

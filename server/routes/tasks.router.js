@@ -3,7 +3,7 @@ const tasksRouter = express.Router();
 
 const pool = require('../modules/pool');
 
-//DB CONNECTIONS
+//DB Connection on pool.js
 
 // GET
 tasksRouter.get('/', (req, res) => {
@@ -19,7 +19,7 @@ tasksRouter.get('/', (req, res) => {
 //POST
 tasksRouter.post('/', (req, res) => {
     const newTask = req.body;
-    console.log('in koala POST', newTask);
+    console.log('adding task', newTask);
     const queryText = `
                         INSERT INTO "tasks"
                         ("my_task", "task_complete")
