@@ -14,9 +14,9 @@ function addClickHandlers() {
 //Input values are to be place in an object prior to being appended to the DOM
 function handleSubmit() {
     console.log('Submit button clicked.');
-    let task = {};
-    task.my_task = $('#task').val();
-    addTask(task);
+    let newTask = {};
+    newTask.my_task = $('#task').val();
+    addTask(newTask);
 };
 
 function addTask(taskToAdd) {
@@ -41,7 +41,7 @@ function refreshTasks() {
         type: 'GET',
         url: '/tasks'
     }).then(function(response) {
-        console.log('GET /books response', response);
+        console.log('GET /tasks response', response);
         renderTasks(response);
     }).catch(function(error) {
         console.log('error in GET', error);
@@ -58,11 +58,9 @@ function renderTasks(tasks) {
         $('#taskTableBody').append(`
             <tr>
                 <td>${task.my_task}</td>
-                <td>${task.task_complete}</td>
                 <td>
                     <button
                     data-id="${task.id}"
-                    data-my_task="${task.my_task}"
                     class="delete-button">
                         Delete
                     </button>

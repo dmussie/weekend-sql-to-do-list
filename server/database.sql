@@ -1,9 +1,9 @@
-CREATE TABLE "tasks" ("id" serial primary key, "my_task" varchar(100) not null, "task_complete" boolean);
+CREATE TABLE "tasks" ("id" serial primary key, "my_task" varchar(100) not null, "task_complete" boolean default false);
 
-INSERT INTO "tasks" ("my_task", "task_complete")
+INSERT INTO "tasks" ("my_task")
 VALUES
-('Make a grocery run', false),
-('Make and eat dinner', false),
-('Start weekend project', true),
-('Go for a run', false),
-('Hang out with friends', false);
+('Make a grocery run'),
+('Make and eat dinner'),
+('Start weekend project'),
+('Go for a run'),
+('Hang out with friends');
