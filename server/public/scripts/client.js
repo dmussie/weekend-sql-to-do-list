@@ -80,13 +80,28 @@ function renderTasks(tasks) {
 function deleteTask() {
     const taskId = $(this).data('id'); //selects for task id for an appended task
     $.ajax({
-      method: 'DELETE',
-      url: `/tasks/${taskId}`,
+        method: 'DELETE',
+        url: `/tasks/${taskId}`,
     }).then(function(response) {
-      console.log('Task deleted!');
-      refreshTasks(); // Refresh list of tasks
+        console.log('Task deleted!');
+        refreshTasks(); // Refresh list of tasks
     }).catch(function(error) {
-      alert('something went wrong!');
-      console.log('error in DELETE', error);
+        alert('something went wrong!');
+        console.log('error in DELETE', error);
     });
-  };
+};
+
+// this will mark a task as complete upon click of complete_button
+function setToComplete() {
+    const taskId = $(this).data('id');
+    $.ajax({
+        method: 'PUT',
+        url: `/tasks/${taskId}`,
+    }).then(function(response) {
+        console.log('Set to complete!');
+        getTasks();
+    }).catch(function(error) {
+        alert('Something went wrong!');
+        console.log('Error in PUT', error);
+    })
+};
