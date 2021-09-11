@@ -7,7 +7,7 @@ const pool = require('../modules/pool');
 
 // GET
 tasksRouter.get('/', (req, res) => {
-    const queryText = 'SELECT * FROM "tasks" ORDER BY "id";';
+    const queryText = 'SELECT * FROM "tasks" ORDER BY "my_task";';
     pool.query(queryText).then(result => {
         res.send(result.rows);
     }).catch(error => {

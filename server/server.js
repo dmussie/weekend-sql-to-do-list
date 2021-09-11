@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.static('server/public'));
 
 // saves our task.router as a variable
-const tasksRouter = require('./routes/tasks.router');
+const tasksRouter = require('./routes/tasks.router.js');
 
 app.use('/tasks', tasksRouter);
 
