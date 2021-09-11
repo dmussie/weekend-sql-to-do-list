@@ -1,3 +1,4 @@
+const { Router } = require('express');
 const express = require('express');
 const tasksRouter = express.Router();
 
@@ -35,6 +36,27 @@ tasksRouter.post('/', (req, res) => {
         res.sendStatus(200);
     }).catch((error) => {
         console.log('Error in POST', error);
+        res.sendStatus(500);
+    });
+});
+
+/**
+ * PUT
+ * Update a task to show its been completed
+ * Request will include a parameter indicating what book to update - the id
+ * Request body will include teh content to update - the status
+ */
+
+router.put('/:id', (req, res) => {
+    console.log(req.params);
+    const taskId = req.params.id;
+    const queryText = `UPDATE "tasks" 
+                        SET "task_complete" = TRUE 
+                        WHERE "id" = $1`;
+    pool.query(queryText, [taskId]).then((result) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('Error in /tasks PUT', error);
         res.sendStatus(500);
     });
 });
