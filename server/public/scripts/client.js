@@ -100,7 +100,7 @@ function setToComplete() {
         url: `/tasks/${taskId}`,
     }).then(function(response) {
         console.log('Set to complete!');
-        getTasks();
+        refreshTasks();
     }).catch(function(error) {
         alert('Something went wrong!');
         console.log('Error in PUT', error);

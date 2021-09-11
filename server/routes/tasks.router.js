@@ -69,13 +69,13 @@ tasksRouter.put('/:id', (req, res) => {
 tasksRouter.delete('/:id', (req, res) => {
     console.log(req.params);
     const taskId = req.params.id;
-    const queryText = 'DELETE FROM "books" WHERE "id"=$1';
+    const queryText = 'DELETE FROM "tasks" WHERE "id"=$1';
     pool.query(queryText, [taskId]).then((result) => {
         res.sendStatus(200);
-    }).catch(error) => {
+    }).catch((error) => {
         console.log('Error in /tasks DELETE', error);
         res.sendStatus(500);
-    }
+    })
 });
 
 module.exports = tasksRouter;
