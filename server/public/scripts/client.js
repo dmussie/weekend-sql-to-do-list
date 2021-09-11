@@ -15,7 +15,7 @@ function addClickHandlers() {
 function handleSubmit() {
     console.log('Submit button clicked.');
     let newTask = {};
-    newTask.my_task = $('#task').val();
+    newTask.task = $('#task').val();
     addTask(newTask);
 };
 
@@ -57,7 +57,7 @@ function renderTasks(tasks) {
         // For each task, append new row to table
         $('#taskTableBody').append(`
             <tr>
-                <td>${task.my_task}</td>
+                <td>${task.task}</td>
                 <td>
                     <button
                     data-id="${task.id}"

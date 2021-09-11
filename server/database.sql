@@ -1,6 +1,9 @@
-CREATE TABLE "tasks" ("id" serial primary key, "my_task" varchar(100) not null, "task_complete" boolean default false);
+CREATE TABLE "my_tasks" ("id" SERIAL PRIMARY KEY, 
+"task" VARCHAR(100) NOT NULL, 
+"task_complete" BOOLEAN DEFAULT FALSE
+);
 
-INSERT INTO "tasks" ("my_task")
+INSERT INTO "my_tasks" ("task")
 VALUES
 ('Make a grocery run'),
 ('Make and eat dinner'),
