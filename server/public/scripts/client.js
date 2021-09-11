@@ -15,7 +15,6 @@ function handleSubmit() {
     let task = {};
     task.my_task = $('#task').val();
     addTask(task);
-    $('#task').val(''); // clear input
 };
 
 function addTask(taskToAdd) {
@@ -103,5 +102,23 @@ function setToComplete() {
     }).catch(function(error) {
         alert('Something went wrong!');
         console.log('Error in PUT', error);
+    })
+};
+
+function postTask() {
+    let payloadObject = {
+        task: $('#task')
+    }
+    console.log('Calling /tasks POST', payloadObject);
+    $.ajax({
+        type: 'POST',
+        url: '/tasks',
+        data: payloadObject,
+    }).then(function (response) {
+       $('#task').val(''),
+       refreshTasks(); 
+    }).catch(function(error) {
+        alert('Something went wrong!');
+        console.log('Error in POST', error);
     })
 };
