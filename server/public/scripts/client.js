@@ -74,4 +74,19 @@ function renderTasks(tasks) {
             </tr>
         `)
     }
-}
+};
+
+// deleteTask will delete a task upon clicking the delete button
+function deleteTask() {
+    const taskId = $(this).data('id'); //selects for task id for an appended task
+    $.ajax({
+      method: 'DELETE',
+      url: `/tasks/${taskId}`,
+    }).then(function(response) {
+      console.log('Task deleted!');
+      refreshTasks(); // Refresh list of tasks
+    }).catch(function(error) {
+      alert('something went wrong!');
+      console.log('error in DELETE', error);
+    });
+  };
