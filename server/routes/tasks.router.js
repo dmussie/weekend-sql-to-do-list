@@ -19,17 +19,16 @@ tasksRouter.get('/', (req, res) => {
 
 //POST
 tasksRouter.post('/', (req, res) => {
-    const newTask = req.body;
+    console.log(req.body);
+    let newTask = req.body;
     console.log('adding task', newTask);
     const queryText = `
-                        INSERT INTO "my_tasks"
-                        ("task")
-                        VALUES
-                        ($1);
+        INSERT INTO "my_tasks" ("task")
+        VALUES ($1);
     `; // Passing req.body values through pg
     // anticipating receiving an object from the client POST req
     pool.query(queryText, [
-        newTask.my_task,
+        newTask.task //$1 
         //newTask.task_complete
     ]).then((result) => { // sending success back to client
         console.log('POST new task success!');

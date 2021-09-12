@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 function addClickHandlers() {
     console.log('In addClickHandlers');
-    $('#submit-task').on('click', handleSubmit);
+    $('#submit-task').on('click', postTask);
     $('#taskTableBody').on('click', '.delete-button', deleteTask);
     $('#taskTableBody').on('click', '.complete-button', setToComplete);
 };
@@ -19,6 +19,7 @@ function handleSubmit() {
     addTask(newTask);
 };
 
+//adds a task to the database
 function addTask(taskToAdd) {
     console.log('in addTask', taskToAdd);
     $.ajax({
@@ -49,23 +50,26 @@ function refreshTasks() {
 };
 
 //renderTasks will display array of tasks to the DOM
-function renderTasks(tasks) {
+function renderTasks(response) {
     $('#taskTableBody').empty();
 
-    for(let i = 0; i < tasks.length; i++) {
-        let task = tasks[i];
+    for(let i = 0; i < response.length; i++) {
+        let myTask = response[i];
         // For each task, append new row to table
         $('#taskTableBody').append(`
             <tr>
-                <td>${task.task}</td>
+                <td>${myTask.task}</td>
+                <td>${myTask.task_complete}</td>
                 <td>
                     <button
-                    data-id="${task.id}"
+                    data-id="${myTask.id}"
+                    data-task="${myTask.task}"
                     class="delete-button">
                         Delete
                     </button>
                     <button
-                    data-id="${task.id}"
+                    data-id="${myTask.id}"
+                    data-task="${myTask.task}"
                     class="complete-button">
                         Complete
                     </button>
@@ -105,9 +109,10 @@ function setToComplete() {
     })
 };
 
+// Creates an object for user inputs to be sent to the server
 function postTask() {
     let payloadObject = {
-        task: $('#task')
+        task: $('#task-input').val()
     }
     console.log('Calling /tasks POST', payloadObject);
     $.ajax({
@@ -115,10 +120,10 @@ function postTask() {
         url: '/tasks',
         data: payloadObject,
     }).then(function (response) {
-       $('#task').val(''),
+       $('#task-input').val('')
        refreshTasks(); 
     }).catch(function(error) {
         alert('Something went wrong!');
         console.log('Error in POST', error);
-    })
+    });
 };
