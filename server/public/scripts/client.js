@@ -38,6 +38,9 @@ function addTask(taskToAdd) {
 //refreshTasks will get all tasks from the server and render to page
 function refreshTasks() {
     console.log('in refreshTasks');
+    console.log($(this));
+    console.log($(this).parent());
+    console.log($(this).parent().parent());
     $.ajax({
         type: 'GET',
         url: '/tasks'
@@ -54,10 +57,17 @@ function renderTasks(response) {
     $('#taskTableBody').empty();
 
     for(let i = 0; i < response.length; i++) {
+        let completed = '';
         let myTask = response[i];
+        if(myTask.task_complete === false) {
+            completed = `<button data-id="${myTask.id}" data-task="${myTask.task}"class="complete-button"> Complete</button>`
+        } else if (myTask.task_complete === true) {
+            completed = 'Done!!!';
+        }
+        
         // For each task, append new row to table
         $('#taskTableBody').append(`
-            <tr>
+            <tr class=${myTask.task_complete ? 'row-class' : ''}>
                 <td>${myTask.task}</td>
                 <td>${myTask.task_complete}</td>
                 <td>
@@ -67,17 +77,12 @@ function renderTasks(response) {
                     class="delete-button">
                         Delete
                     </button>
-                    <button
-                    data-id="${myTask.id}"
-                    data-task="${myTask.task}"
-                    class="complete-button">
-                        Complete
-                    </button>
+                    ${completed}
                 </td>
             </tr>
         `)
     }
-};
+}; //turnary operator I had help on, if task_complete === true, incorporate row-class and its color
 
 // deleteTask will delete a task upon clicking the delete button
 function deleteTask() {
@@ -96,6 +101,9 @@ function deleteTask() {
 
 // this will mark a task as complete upon click of complete_button
 function setToComplete() {
+    console.log($(this));
+    console.log($(this).parent());
+    console.log($(this).parent().parent());
     const taskId = $(this).data('id');
     $.ajax({
         method: 'PUT',

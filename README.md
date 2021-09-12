@@ -28,13 +28,18 @@ The To-Do App
 -[x] create a put route that can update the “task_complete” column
 -[x] create a pool to connect to the database
 
-##Client side
+## Client side
 -[x] finalize click listener
 -[x] ajax call to GET route for updating DOM
 -[x] (appending to DOM)
 -[x] ajax call to POST route for adding new task
 -[x] ajax call to PUT route for editing a row item
--[ ] create a ‘Task Complete’ button that disappears and causes a row color change when the task is ready to be transferred 
+-[x] create a ‘Task Complete’ button that should indicate whether a task needs to be completed or not
+
+## Styling
+-[] ‘Task Complete’ button should also cause a row color change when the task is complete verses not
+-[] Add background color
+-[] text color
 
 
 ## Description
