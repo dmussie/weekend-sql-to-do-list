@@ -1,9 +1,12 @@
+//On page load, we want to call refreshTasks and addClickHandlers 
 $(document).ready(function(){
     console.log('jQuery sourced.');
     refreshTasks();
     addClickHandlers();
   });
 
+//We have 3 buttons, our submit-task button will add new tasks to our list
+//taskTableBody will have a delete button and a complete button appended to it when a new task is added
 function addClickHandlers() {
     console.log('In addClickHandlers');
     $('#submit-task').on('click', postTask);
@@ -38,9 +41,6 @@ function addTask(taskToAdd) {
 //refreshTasks will get all tasks from the server and render to page
 function refreshTasks() {
     console.log('in refreshTasks');
-    console.log($(this));
-    console.log($(this).parent());
-    console.log($(this).parent().parent());
     $.ajax({
         type: 'GET',
         url: '/tasks'
@@ -81,7 +81,7 @@ function renderTasks(response) {
             </tr>
         `)
     }
-}; //turnary operator I had help on, if task_complete === true, incorporate row-class and its color
+}; //turnary operator I had help on, if task_complete === true, incorporate row-class and its color set on styles.css
 
 // deleteTask will delete a task upon clicking the delete button
 function deleteTask() {

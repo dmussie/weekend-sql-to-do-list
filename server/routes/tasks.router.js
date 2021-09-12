@@ -1,3 +1,4 @@
+//Enable express and express.router and allow database items to be utilized and added to
 const { Router } = require('express');
 const express = require('express');
 const tasksRouter = express.Router();
@@ -7,6 +8,7 @@ const pool = require('../modules/pool');
 //DB Connection on pool.js
 
 // GET
+//Newly inputed tasks from the user can be pushed back to the client
 tasksRouter.get('/', (req, res) => {
     const queryText = 'SELECT * FROM "my_tasks" ORDER BY "task";';
     pool.query(queryText).then(result => {
@@ -18,6 +20,7 @@ tasksRouter.get('/', (req, res) => {
 });
 
 //POST
+//Enables a new task from the user to be added to the database
 tasksRouter.post('/', (req, res) => {
     console.log(req.body);
     let newTask = req.body;
@@ -62,7 +65,7 @@ tasksRouter.put('/:id', (req, res) => {
 
 /**
  * DELETE
- * Removes a task to show it's been completed 
+ * A user can remove a task from the database after indication it's been completed 
  */
 
 tasksRouter.delete('/:id', (req, res) => {
@@ -77,4 +80,5 @@ tasksRouter.delete('/:id', (req, res) => {
     })
 });
 
+//enables tasks.router to communicate with server, client and database
 module.exports = tasksRouter;
