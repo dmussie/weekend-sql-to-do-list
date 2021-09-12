@@ -38,8 +38,8 @@ The To-Do App
 
 ## Styling
 -[x] ‘Task Complete’ button should also cause a row color change when the task is complete verses not
--[] Add background color
--[] text color
+-[x] Add background color
+-[x] text color
 
 
 ## Description
