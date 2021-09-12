@@ -23,19 +23,18 @@ The To-Do App
 ## Server side(push branch and create pull request after each route)
 -[x] npm install and npm install pg
 -[x] link client.js to tasks.router
--[] create a get route that retrieves all of the tasks 
--[ ] create a post route that can enter a new task
--[ ] create a put route that can update the “ready_to_transfer” column
--[] create a pool to connect to the database
--[ ]
+-[x] create a get route that retrieves all of the tasks 
+-[x] create a post route that can enter a new task
+-[x] create a put route that can update the “task_complete” column
+-[x] create a pool to connect to the database
 
 ##Client side
--[ ] finalize click listener
--[ ] ajax call to GET route for updating DOM
--[ ] (appending to DOM)
--[ ] ajax call to POST route for adding new koala
--[ ] ajax call to PUT route for editing a row item
--[ ] create a ‘Task Complete’ button that disappears when the task is ready to be transferred 
+-[x] finalize click listener
+-[x] ajax call to GET route for updating DOM
+-[x] (appending to DOM)
+-[x] ajax call to POST route for adding new task
+-[x] ajax call to PUT route for editing a row item
+-[ ] create a ‘Task Complete’ button that disappears and causes a row color change when the task is ready to be transferred 
 
 
 ## Description
