@@ -69,7 +69,6 @@ function renderTasks(response) {
         $('#taskTableBody').append(`
             <tr class=${myTask.task_complete ? 'row-class' : ''}>
                 <td>${myTask.task}</td>
-                <td>${myTask.task_complete}</td>
                 <td>
                     <button
                     data-id="${myTask.id}"

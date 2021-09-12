@@ -37,7 +37,7 @@ The To-Do App
 -[x] create a ‘Task Complete’ button that should indicate whether a task needs to be completed or not
 
 ## Styling
--[] ‘Task Complete’ button should also cause a row color change when the task is complete verses not
+-[x] ‘Task Complete’ button should also cause a row color change when the task is complete verses not
 -[] Add background color
 -[] text color
 
