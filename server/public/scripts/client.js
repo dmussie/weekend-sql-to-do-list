@@ -61,7 +61,7 @@ function renderTasks(response) {
         let myTask = response[i];
         if(myTask.task_complete === false) {
             completed = `<button data-id="${myTask.id}" data-task="${myTask.task}"class="complete-button"> Complete</button>`
-        } else if (myTask.task_complete === true) {
+        } else if (myTask.task_complete) {
             completed = 'Done!!!';
         }
         
